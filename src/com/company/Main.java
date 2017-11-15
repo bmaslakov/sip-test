@@ -115,6 +115,14 @@ public class Main implements SipListener {
         @Override
         public void run() {
             CallIdHeader callIdHeader = sipProvider.getNewCallId();
+
+            // uncomment this and it starts working
+//            try {
+//                Thread.sleep((long) (Math.random() * 10000));
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+
             try {
                 ClientTransaction mClientTransaction = sipHelper.sendRegister(
                         localProfile, String.valueOf(Math.random() * 0x100000000L),
